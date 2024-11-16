@@ -1,0 +1,11 @@
+---
+schemaVersion: "2.2"
+description: "Add users to ubuntu group and set passwords"
+parameters: {}
+mainSteps:
+  - action: "aws:runShellScript"
+    name: "modifyUsers"
+    inputs:
+      runCommand:
+        - "for user in lipika.nanda nazrana.choudhury prabhakar.balgeri thirupatireddy.k  suryanarayana.k murad.zeynalov sushma.cherukupalli ramu.addala imran.ali naveen.b umeshgoud.t zubair.m abdelkader.b kainaz.p; do sudo usermod -a -G ubuntu $user || true; done"
+        - "for user in lipika.nanda nazrana.choudhury prabhakar.balgeri thirupatireddy.k  suryanarayana.k murad.zeynalov sushma.cherukupalli ramu.addala imran.ali naveen.b umeshgoud.t zubair.m abdelkader.b kainaz.p; do printf '%s:Auto@123\n' \"$user\" | sudo chpasswd || true; done"

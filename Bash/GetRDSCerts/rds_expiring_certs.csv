@@ -1,0 +1,17 @@
+Region,DBInstanceIdentifier,CACertificateIdentifier,CAExpirationDate,ExpiresWithinThreshold,AutoMinorVersionUpgrade
+ca-central-1,platform-postgres1,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+ap-southeast-1,postgres-platform,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+ap-southeast-2,db-ap-southeast-2-prod-snapshot,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+ap-southeast-2,postgres-pltform,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+eu-central-1,ar-swift-prd-eu-central-1-postgres-rds,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+eu-central-1,flowcenterdb-eu-prod,rds-ca-rsa2048-g1,2061-05-21T23:23:47+00:00,No,True
+eu-central-1,platform-postgres-1,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+eu-central-1,swift-vault-instance-1,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+eu-central-1,swift-vault-instance-1-eu-central-1c,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+us-east-1,ar-flowcenter-rds,rds-ca-rsa2048-g1,2061-05-25T23:34:57+00:00,No,True
+us-east-1,db-codescan-bylinebank-prd,rds-ca-rsa2048-g1,2061-05-25T23:34:57+00:00,No,False
+us-east-1,db-codscan-penfed-prod,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,False
+us-east-1,penfed-scheduler-postgres,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+us-east-2,platform-postgres,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+us-west-2,ar-platform-prd-tmp-us-west-2-postgres-rds,rds-ca-2019,2024-08-22T17:08:50+00:00,Yes,True
+us-west-2,flowcenterdb-prod,rds-ca-rsa2048-g1,2061-05-24T22:59:00+00:00,No,True

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Define the SSM document JSON file
-SSM_DOCUMENT_JSON="TAFReports.json"
+# Define the SSM document YAML file
+SSM_DOCUMENT_YAML="docContent.yaml"
 
 # Name for the SSM document (change as needed)
-SSM_DOCUMENT_NAME="TAFReports"
+SSM_DOCUMENT_NAME="ARM-GroupPassword"
 
 # CSV file to log created documents
 CSV_FILE="doc_created.csv"
@@ -36,8 +36,8 @@ for REGION in $REGIONS; do
         --region "$REGION" \
         --name "$SSM_DOCUMENT_NAME" \
         --document-type "Command" \
-        --content "file://$SSM_DOCUMENT_JSON" \
-        --document-format "JSON" \
+        --content "file://$SSM_DOCUMENT_YAML" \
+        --document-format "YAML" \
         --target-type "/AWS::EC2::Instance" \
         --query "DocumentDescription.DocumentVersion" \
         --output text)
@@ -58,7 +58,7 @@ for REGION in $REGIONS; do
         --output text)
 
       # Get the new document content
-      NEW_DOCUMENT_CONTENT=$(cat "$SSM_DOCUMENT_JSON")
+      NEW_DOCUMENT_CONTENT=$(cat "$SSM_DOCUMENT_YAML")
 
       if [ "$EXISTING_DOCUMENT_CONTENT" == "$NEW_DOCUMENT_CONTENT" ]; then
         echo "No changes detected in the document content for $REGION. Skipping update."
@@ -73,11 +73,11 @@ for REGION in $REGIONS; do
         echo "Updating SSM document to version $NEXT_VERSION..."
 
         # Update the existing SSM document using the $LATEST version
-        aws ssm update-document \
+        aws ssm update-document-default-version \
           --region "$REGION" \
           --name "$SSM_DOCUMENT_NAME" \
-          --content "file://$SSM_DOCUMENT_JSON" \
-          --document-format "JSON" \
+          --content "file://$SSM_DOCUMENT_YAML" \
+          --document-format "YAML" \
           --target-type "/AWS::EC2::Instance" \
           --document-version "$LATEST_VERSION"
 
