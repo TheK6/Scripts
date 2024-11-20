@@ -7,7 +7,7 @@ INPUT_FILE = "alarm_event_patterns.txt"
 
 # AWS configuration
 ACCOUNT_ID = "261140574810"  # Replace with your AWS account ID
-SSM_DOCUMENT_NAME = "arm-thread-dumps-dev"  # Replace with your SSM Document name
+SSM_DOCUMENT_NAME = "vault-thread-dumps-dev"  # Replace with your SSM Document name
 EVENTBRIDGE_RULE_ROLE = "arn:aws:iam::261140574810:role/Eventbridge_SSM_Permissions"
 
 with open(INPUT_FILE, "r") as file:
@@ -20,8 +20,8 @@ with open(INPUT_FILE, "r") as file:
     for line in file:
         # Check if the line indicates alarm creation with region info
         if line.startswith("Alarm created:"):
-            # Extract alarm name, instance ID, and region
-            alarm_name_match = re.search(r'CPUTheadDumpTest_[^ ]*', line)
+            # Extract alarm name, instance ID, and region using more robust regex
+            alarm_name_match = re.search(r'CPUTheadDump_[^\s]+', line)
             instance_id_match = re.search(r'i-[0-9a-fA-F]+', line)
             region_match = re.search(r'(?<=region )\S+$', line.strip())
 

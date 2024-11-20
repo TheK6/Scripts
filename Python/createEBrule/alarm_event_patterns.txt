@@ -1,8 +1,30 @@
-Alarm created: CPUTheadDumpTest_i-0781c64a4a9aff104 in region us-east-1
+Alarm created: CPUTheadDump_i-0cbc3471f59b7ea6d in region us-east-1
 {
-  "source": ["aws.cloudwatch"],
-  "detail-type": ["CloudWatch Alarm State Change"],
+  "source": [
+    "aws.cloudwatch"
+  ],
+  "detail-type": [
+    "CloudWatch Alarm State Change"
+  ],
   "detail": {
-    "alarmName": ["CPUTheadDumpTest_i-0781c64a4a9aff104"]
+    "alarmName": [
+      "CPUTheadDump_i-0cbc3471f59b7ea6d"
+    ]
   }
 }
+
+Alarm created: CPUTheadDump_i-014c4ecddbad6b7c9 in region us-east-1
+{
+  "source": [
+    "aws.cloudwatch"
+  ],
+  "detail-type": [
+    "CloudWatch Alarm State Change"
+  ],
+  "detail": {
+    "alarmName": [
+      "CPUTheadDump_i-014c4ecddbad6b7c9"
+    ]
+  }
+}
+
