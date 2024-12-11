@@ -3,11 +3,17 @@
 # Define the SSM document YAML file
 SSM_DOCUMENT_YAML="docContent.yaml"
 
-# Name for the SSM document (change as needed)
+# Name for the SSM document
 SSM_DOCUMENT_NAME="ARM-GroupPassword"
 
 # CSV file to log created documents
 CSV_FILE="doc_created.csv"
+
+# Ensure the SSM document YAML exists
+if [ ! -f "$SSM_DOCUMENT_YAML" ]; then
+  echo "Error: $SSM_DOCUMENT_YAML not found. Please ensure the file exists in the current directory."
+  exit 1
+fi
 
 # Create or clear the CSV file and add headers
 echo "Region,InstanceCount" > "$CSV_FILE"
@@ -30,8 +36,6 @@ for REGION in $REGIONS; do
 
     if [ -z "$DOCUMENT_EXISTS" ]; then
       echo "Creating new SSM document in $REGION..."
-
-      # Create the SSM document in the current region and capture its document version
       DOCUMENT_OUTPUT=$(aws ssm create-document \
         --region "$REGION" \
         --name "$SSM_DOCUMENT_NAME" \
@@ -43,77 +47,61 @@ for REGION in $REGIONS; do
         --output text)
 
       if [ $? -eq 0 ]; then
-        echo "SSM document $SSM_DOCUMENT_NAME created successfully in region $REGION with document version $DOCUMENT_OUTPUT."
+        echo "SSM document $SSM_DOCUMENT_NAME created successfully in region $REGION."
       else
         echo "Error creating SSM document in region $REGION."
       fi
     else
       echo "SSM document $SSM_DOCUMENT_NAME already exists in $REGION. Checking for changes..."
 
-      # Get the content of the existing document
       EXISTING_DOCUMENT_CONTENT=$(aws ssm get-document \
         --region "$REGION" \
         --name "$SSM_DOCUMENT_NAME" \
         --query "Content" \
         --output text)
 
-      # Get the new document content
-      NEW_DOCUMENT_CONTENT=$(cat "$SSM_DOCUMENT_YAML")
-
-      if [ "$EXISTING_DOCUMENT_CONTENT" == "$NEW_DOCUMENT_CONTENT" ]; then
-        echo "No changes detected in the document content for $REGION. Skipping update."
-        DOCUMENT_OUTPUT=$(aws ssm describe-document --region "$REGION" --name "$SSM_DOCUMENT_NAME" --query "Document.DocumentVersion" --output text)
+      if diff <(echo "$EXISTING_DOCUMENT_CONTENT") "$SSM_DOCUMENT_YAML" > /dev/null; then
+        echo "No changes detected. Skipping update."
       else
-        # Get the latest document version
-        LATEST_VERSION=$(aws ssm describe-document --region "$REGION" --name "$SSM_DOCUMENT_NAME" --query "Document.LatestVersion" --output text)
-
-        # Increment the document version by 1
-        NEXT_VERSION=$((LATEST_VERSION + 1))
-
-        echo "Updating SSM document to version $NEXT_VERSION..."
-
-        # Update the existing SSM document using the $LATEST version
-        aws ssm update-document-default-version \
+        echo "Updating SSM document in $REGION..."
+        aws ssm update-document \
           --region "$REGION" \
           --name "$SSM_DOCUMENT_NAME" \
           --content "file://$SSM_DOCUMENT_YAML" \
           --document-format "YAML" \
           --target-type "/AWS::EC2::Instance" \
-          --document-version "$LATEST_VERSION"
+          --document-version "\$LATEST"
 
         if [ $? -eq 0 ]; then
           echo "SSM document $SSM_DOCUMENT_NAME updated successfully in region $REGION."
-
-          # Set the next version as the document version
-          DOCUMENT_OUTPUT=$NEXT_VERSION
         else
-          echo "Error updating SSM document in region $REGION."
+          echo "Error updating SSM document in $REGION."
         fi
       fi
     fi
 
-    # Only update the default version if a valid document version is found
-    if [[ "$DOCUMENT_OUTPUT" =~ ^[1-9][0-9]*$ ]]; then
-      # Set the latest document version as the default version (using numeric version)
-      DEFAULT_VERSION_OUTPUT=$(aws ssm update-document-default-version \
-        --region "$REGION" \
-        --name "$SSM_DOCUMENT_NAME" \
-        --document-version "$DOCUMENT_OUTPUT")
+    # Set the latest document version as default
+    LATEST_VERSION=$(aws ssm describe-document \
+      --region "$REGION" \
+      --name "$SSM_DOCUMENT_NAME" \
+      --query "Document.LatestVersion" \
+      --output text)
 
-      if [ $? -eq 0 ]; then
-        echo "SSM document $SSM_DOCUMENT_NAME in region $REGION is now using document version $DOCUMENT_OUTPUT as the default."
-      else
-        echo "Error setting the default version of SSM document in region $REGION."
-      fi
+    aws ssm update-document-default-version \
+      --region "$REGION" \
+      --name "$SSM_DOCUMENT_NAME" \
+      --document-version "$LATEST_VERSION"
+
+    if [ $? -eq 0 ]; then
+      echo "Default version of $SSM_DOCUMENT_NAME set to $LATEST_VERSION in region $REGION."
     else
-      echo "No valid document version found for $SSM_DOCUMENT_NAME in region $REGION."
+      echo "Error setting default version for $SSM_DOCUMENT_NAME in region $REGION."
     fi
 
-    # Log the region and instance count into the CSV file
+    # Log the region and instance count
     echo "$REGION,$INSTANCE_COUNT" >> "$CSV_FILE"
-    
   else
-    echo "No instances found in region $REGION. Skipping SSM document creation."
+    echo "No instances found in region $REGION. Skipping."
   fi
 
   echo "---------------------------------------------"

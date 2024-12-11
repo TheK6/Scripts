@@ -1,0 +1,17 @@
+Region,Instance ID,Instance Name,Instance Type,State,Public IP,Private IP,Launch Time
+eu-west-2,i-0ee61eae7d8583c04,eu107.autorabit.com,m5.8xlarge,running,N/A,172.31.125.132,2024-09-24 06:19:09+00:00
+ca-central-1,i-09b34ddef468d7bd2,ca105.autorabit.com,m5.8xlarge,running,N/A,172.31.125.83,2024-09-24 04:24:15+00:00
+ca-central-1,i-05989ed473b802615,ebr-canada-grafana,t4g.large,running,N/A,172.31.125.185,2024-11-14 10:20:15+00:00
+ap-southeast-2,i-098447241f430beec,asbvault.autorabit.com,m5.2xlarge,running,54.79.242.156,172.31.3.133,2024-04-10 21:22:17+00:00
+ap-southeast-2,i-05d54d85952dc7053,ap109,m5.4xlarge,running,N/A,172.31.126.216,2024-09-25 04:52:08+00:00
+ap-southeast-2,i-09278417ef5ac83a8,ap102,r5.4xlarge,running,N/A,172.31.126.166,2024-09-25 00:46:57+00:00
+eu-central-1,i-0795816ebbfaf9842,eu104.autorabit.com_u22,r5.12xlarge,running,N/A,172.31.125.98,2024-09-24 04:28:50+00:00
+eu-central-1,i-0bb4475297c76ef59,baxtervault,r5.4xlarge,running,N/A,172.31.127.226,2024-10-24 10:10:19+00:00
+us-east-1,i-09f402a575a3ad278,Jefferies,m5.4xlarge,running,174.129.82.37,172.31.81.105,2023-04-15 06:18:36+00:00
+us-east-1,i-08226d87de49e1838,k8s-launch,t3.small,running,50.16.23.109,172.31.95.65,2024-01-09 07:26:13+00:00
+us-east-1,i-0717f916898ab350f,Vault-Onpremise.autorabit.com,t2.2xlarge,stopped,N/A,172.31.93.35,2024-02-19 12:31:24+00:00
+us-east-2,i-0b5731df1487d4815,quest-vault.autorabit.com,r5.2xlarge,running,N/A,172.31.123.168,2024-10-19 06:59:38+00:00
+us-east-2,i-0e1c8ea492e111be1,farmcredit-vault.autorabit.com,r5.4xlarge,running,N/A,172.31.133.217,2024-10-27 01:14:01+00:00
+us-east-2,i-06f27b07dbc38fd6f,firstunitedbank-ubuntu-22,r5.4xlarge,running,N/A,172.31.143.221,2024-11-10 05:58:06+00:00
+us-west-2,i-0af00617060c0cf94,na101,r5.4xlarge,running,N/A,172.31.126.77,2024-09-25 05:18:35+00:00
+us-west-2,i-041494da85a9c0d65,na108,r5.8xlarge,running,N/A,172.31.126.197,2024-09-25 05:27:54+00:00

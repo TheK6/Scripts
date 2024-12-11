@@ -1,0 +1,52 @@
+Region,Instance ID,Instance Name,Instance Type,State,Public IP,Private IP,Launch Time
+af-south-1,i-0c369ee645d47c530,elasticsearch-standardbank-prd,t3.large,running,N/A,10.0.101.132,2024-06-17 00:09:06+00:00
+af-south-1,i-018a0c2f45306f9e9,elasticsearch-standardbank-prd,t3.large,running,N/A,10.0.103.202,2024-06-17 00:07:07+00:00
+af-south-1,i-0b7e2751b130d30d3,ebr-capetown-grafana,t4g.large,running,N/A,10.0.103.143,2024-11-23 03:51:42+00:00
+af-south-1,i-0571e6cdd5f6fbe0b,codescan-standardbank-prd,c5.4xlarge,running,N/A,10.0.101.254,2024-10-21 12:54:52+00:00
+ap-southeast-2,i-05fb245d32ecaf429,test-vm,t2.micro,running,54.153.132.216,10.0.22.187,2023-04-02 16:48:59+00:00
+ap-southeast-2,i-0cc106341c216a3ab,ECS Instance - EC2ContainerService-codescan-aus,c5.4xlarge,running,54.66.17.50,10.0.29.75,2022-11-16 14:04:24+00:00
+ap-southeast-2,i-06a679f8b82922d61,ECS Instance - EC2ContainerService-codescan-asb,c5.4xlarge,running,3.104.55.226,10.0.29.90,2023-04-03 05:25:27+00:00
+ap-southeast-2,i-0390f521ea01c40a4,aus-elasticsearch7-data-node01_In_Use,t3.medium,running,54.206.97.106,10.0.3.108,2023-09-23 11:51:25+00:00
+ap-southeast-2,i-07d3a7369b8a9a6bf,aus-elasticsearch7-data-node02_In_Use,t3.medium,running,54.206.54.93,10.0.5.143,2023-09-23 11:51:25+00:00
+ap-southeast-2,i-0aedaeef59c21dcab,ASB_Elastic7_In_Use_Node1,t2.medium,running,3.27.234.225,10.0.12.5,2023-11-15 09:03:52+00:00
+ap-southeast-2,i-06f549b6ab2119d0c,ASB_Elastic7_in_Use_Node2,t2.medium,running,13.211.168.24,10.0.13.1,2023-11-15 09:03:56+00:00
+eu-central-1,i-0675ed175f6f46cbf,Elastic7_Manual_01,t2.medium,running,35.157.26.110,171.32.102.229,2023-09-30 06:45:36+00:00
+eu-central-1,i-0d7d6ef212f67cee0,ECS Instance - EC2ContainerService-EC2ContainerService-codescanng,t2.xlarge,running,18.197.107.177,171.32.101.127,2023-12-20 22:55:54+00:00
+eu-central-1,i-0f3683daf74d79eea,Elastic7_Manual_02,t2.medium,running,3.72.232.130,171.32.102.101,2023-09-30 06:45:31+00:00
+eu-central-1,i-0dfc28c590ca3e849,ECS Instance - EC2ContainerService-EC2ContainerService-codescanng,t2.xlarge,running,18.195.119.72,171.32.102.15,2024-11-05 04:01:26+00:00
+us-east-1,i-02037342d27326f8b,vm-for-regression-testing,c4.xlarge,running,34.239.93.180,172.31.20.24,2024-04-17 10:36:28+00:00
+us-east-1,i-096585c20f61a69ba,DD Monitoring for RDS,t2.micro,stopped,N/A,172.31.33.184,2021-12-28 08:39:00+00:00
+us-east-1,i-007f50abd9c3b8fca,ECS Instance - EC2ContainerService-codescan-tda,c5.4xlarge,running,34.192.181.85,172.31.21.139,2022-08-04 05:11:04+00:00
+us-east-1,i-0a2a4167bbdd33f36,tda-elasticsearch2-data-node,t3.medium,running,44.193.201.40,172.31.25.109,2022-09-20 17:51:58+00:00
+us-east-1,i-0d3f4415c0513eba6,tda-elasticsearch2-data-node,t3.medium,running,44.202.120.117,172.31.14.63,2022-08-03 13:09:32+00:00
+us-east-1,i-04f31f18f92dfe9f8,snowflake2-elasticsearch2-data-node,t3.medium,running,44.197.184.134,172.31.29.195,2022-12-21 10:17:47+00:00
+us-east-1,i-0fe3c72e463be9b39,snowflake2-elasticsearch2-data-node,t3.medium,running,52.90.177.252,172.31.10.116,2022-12-21 10:17:47+00:00
+us-east-1,i-0851e69ff2f937d40,codescan-fub-prd,c5.4xlarge,running,N/A,10.0.103.210,2023-11-14 18:43:56+00:00
+us-east-1,i-0133b35b1cfffb2b2,elasticsearch-fub-prd,t3.large,running,N/A,10.0.103.17,2023-11-14 19:38:05+00:00
+us-east-1,i-03241842874435c75,elasticsearch-metlife-prd,t3.large,running,N/A,10.0.102.228,2023-11-14 21:41:01+00:00
+us-east-1,i-0a0db12e56fd32f49,elasticsearch-fub-prd,t3.large,running,N/A,10.0.102.91,2023-11-14 19:38:05+00:00
+us-east-1,i-071fb6f7caaff878e,ECS Instance - EC2ContainerService-codescan-snowflake2,c5.4xlarge,running,3.235.129.241,172.31.22.234,2023-01-24 01:45:52+00:00
+us-east-1,i-0d5eaec8c5d774e21,ECS Instance - EC2ContainerService-codescanng,c5.4xlarge,running,52.44.11.9,172.31.30.234,2023-08-30 18:17:42+00:00
+us-east-1,i-03a0bc08e19df43d9,Codescanng-ElasticSearch7_01_In_Use,t2.large,running,18.204.43.217,172.31.27.213,2023-11-03 12:37:00+00:00
+us-east-1,i-05fa68551f4c5cc5d,Codescanng-ElasticSearch7_02_In_Use,t2.large,running,54.236.61.77,172.31.18.123,2023-11-03 12:37:00+00:00
+us-east-1,i-015d77b9acd8330fc,elasticsearch-metlife-prd,t3.large,running,N/A,10.0.101.180,2023-11-14 21:41:01+00:00
+us-east-1,i-0f7589deb9a2b810e,Aligntech-Elastic7_Manual_01_In_Use,t2.medium,running,44.205.23.86,172.31.30.179,2023-12-01 06:40:09+00:00
+us-east-1,i-0e991a898c67c3cf0,Aligntech-Elastic7_Manual_02_In_Use,t2.medium,running,18.214.39.249,172.31.22.61,2023-12-01 06:40:09+00:00
+us-east-1,i-0739369a6e3759c8b,greatamerica-elasticsearch-7.17.3_Node01_In_Use,t3.medium,running,44.204.199.8,172.31.27.167,2023-12-26 05:58:47+00:00
+us-east-1,i-08ca3e53861eb8e48,greatamerica-elasticsearch-7.17.3_Node02_In_Use,t3.medium,running,3.239.79.180,172.31.20.237,2023-12-26 05:58:47+00:00
+us-east-1,i-0d8740ef46b022b9c,Tmobile-Elastic7_Manual_01_In_Use,t3.medium,running,100.28.137.142,172.31.12.170,2024-05-21 07:56:50+00:00
+us-east-1,i-0882da452597381d8,Tmobile-Elastic7_Manual_02_In_Use,t3.medium,running,3.224.202.29,172.31.2.227,2024-05-21 07:56:50+00:00
+us-east-1,i-06b55ab95cab4d0ad,ECS Instance - EC2ContainerService-codescan-tmobile,t2.xlarge,running,3.86.204.79,172.31.10.173,2024-05-22 03:57:21+00:00
+us-east-1,i-025e8e613322c5645,zscaler-Elastic7_Manual_01_In_Use,t3.medium,running,44.203.147.75,172.31.13.63,2024-05-25 06:47:05+00:00
+us-east-1,i-0f1d7999911441b78,zscaler-Elastic7_Manual_02_In_Use,t3.medium,running,44.201.189.61,172.31.4.27,2024-05-25 06:47:05+00:00
+us-east-1,i-0b03eb51f71f9ed5f,ECS Instance - EC2ContainerService-codescan-zscaler,t2.2xlarge,running,44.206.222.106,172.31.7.199,2024-05-26 08:13:49+00:00
+us-east-1,i-0cce08b132c134642,N/A,m4.2xlarge,running,54.91.190.36,172.31.2.240,2024-06-17 00:06:30+00:00
+us-east-1,i-0e4894b9d979d2bb9,N/A,m4.2xlarge,running,52.70.207.229,172.31.9.18,2024-06-24 00:46:25+00:00
+us-east-1,i-0f318f1b31d2d3726,codescan-metlife-prd,c5.4xlarge,running,N/A,10.0.103.219,2024-08-28 21:33:37+00:00
+us-east-1,i-083ab8a3f1cea7ea1,ECS Instance - EC2ContainerService-codescanng,c5.4xlarge,running,18.211.102.177,172.31.14.164,2024-09-07 03:00:11+00:00
+us-east-1,i-0ec01eff512380964,TDA-Elastic7_Manual_01_In Use,t3.medium,running,54.208.185.89,172.31.22.92,2024-08-02 01:21:31+00:00
+us-east-1,i-07011172e0d12d08b,TDA-Elastic7_Manual_02_In Use,t3.medium,running,3.228.17.63,172.31.20.200,2024-08-02 01:21:31+00:00
+us-east-1,i-090c5f439bd472d77,quickscan-env,t4g.micro,running,34.202.0.112,172.31.24.190,2024-08-13 04:48:57+00:00
+us-east-1,i-01de187eba55a2c25,ECS Instance - EC2ContainerService-codescan-greatamerica,c5.4xlarge,running,44.205.12.185,172.31.20.207,2024-08-22 07:22:08+00:00
+us-east-1,i-03cc4f82b771dcaf8,N/A,m4.2xlarge,running,44.193.28.143,172.31.25.137,2024-10-08 18:00:50+00:00
+us-east-1,i-072d73cb96ff722f6,ECS Instance - EC2ContainerService-codescan-aligntech,c5.4xlarge,running,54.147.239.34,172.31.6.242,2024-11-21 08:36:32+00:00

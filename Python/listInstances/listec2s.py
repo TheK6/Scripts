@@ -1,5 +1,6 @@
 import boto3
 import csv
+from datetime import datetime
 
 def get_instance_name(instance):
     # Finds Name Tags
@@ -8,20 +9,30 @@ def get_instance_name(instance):
             return tag['Value']
     return 'N/A'  # Return 'N/A' if tag 'Name' is not found
 
-def list_instances_in_all_regions_to_csv(file_name='aws_instances.csv'):
+def list_instances_in_all_regions_to_csv():
     ec2_client = boto3.client('ec2')
+    sts_client = boto3.client('sts')
 
-    # Gets Regions
+    # Get the AWS Account ID
+    account_id = sts_client.get_caller_identity()["Account"]
+
+    # Get today's date
+    today = datetime.now().strftime('%Y-%m-%d')
+
+    # Generate file name
+    file_name = f"aws_instances_{account_id}_{today}.csv"
+
+    # Get Regions
     regions = [region['RegionName'] for region in ec2_client.describe_regions()['Regions']]
 
-    # Creates CSV file
+    # Create CSV file
     with open(file_name, 'w', newline='') as csvfile:
         fieldnames = ['Region', 'Instance ID', 'Instance Name', 'Instance Type', 'State', 'Public IP', 'Private IP', 'Launch Time']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
 
-        # Iterates all regions
+        # Iterate through all regions
         for region in regions:
             ec2 = boto3.resource('ec2', region_name=region)
             instances = ec2.instances.all()

@@ -1,0 +1,20 @@
+ResourceType,Region,Identifier,Status,Role,Engine,Size,MultiAZ,CreationDate
+Instance,af-south-1,db-codescan-standardbank-prd,available,Primary,postgres,db.t3.medium,False,2024-03-30 15:10:42
+Instance,ap-southeast-2,codescan-asb,available,Primary,postgres,db.m6g.large,True,2023-04-02 16:15:29
+Instance,ap-southeast-2,codescan-aus,available,Primary,postgres,db.m6g.large,True,2022-11-14 16:11:50
+Instance,ap-southeast-2,codescan-aus-replica-1812,available,codescan-aus,postgres,db.m6g.large,False,2022-12-18 01:40:34
+Instance,ap-southeast-2,db-codescan-aus-ap-southeast-2-prd,available,Primary,postgres,db.m6g.large,True,2024-09-08 08:14:12
+Instance,eu-central-1,codescan-eu-central-1,available,Primary,postgres,db.m5.2xlarge,False,2021-10-07 09:23:29
+Instance,eu-central-1,codescan-eu-central-1-replica,available,codescan-eu-central-1,postgres,db.m5.large,False,2022-10-16 07:33:42
+Instance,eu-central-1,db-codescan-eu-central-1-prd,available,Primary,postgres,db.m5.2xlarge,False,2024-09-08 07:16:49
+Instance,us-east-1,codescan-3,available,Primary,postgres,db.r6g.2xlarge,True,2021-08-12 14:04:43
+Instance,us-east-1,codescan-3-replica,available,codescan-3,postgres,db.r6g.large,True,2022-10-16 07:17:49
+Instance,us-east-1,codescan-aligntech-1,available,Primary,postgres,db.r6g.large,False,2022-05-06 05:48:14
+Instance,us-east-1,codescan-greatamerica,available,Primary,postgres,db.m6g.large,True,2022-06-30 03:17:12
+Instance,us-east-1,codescan-license-server,available,Primary,postgres,db.m6g.large,True,2021-09-30 07:22:44
+Instance,us-east-1,codescan-snow-flake,available,Primary,postgres,db.m6g.large,True,2022-07-07 05:25:12
+Instance,us-east-1,codescan-tda,available,Primary,postgres,db.m6g.large,True,2022-07-28 03:04:53
+Instance,us-east-1,codescan-tmobile,available,Primary,postgres,db.m6g.large,False,2022-05-10 17:39:34
+Instance,us-east-1,codescan-zscaler,available,Primary,postgres,db.m6g.large,True,2022-05-04 17:04:30
+Instance,us-east-1,db-codescan-fub-prd-fub-prd,available,Primary,postgres,db.t3.medium,False,2023-11-14 20:55:51
+Instance,us-east-1,db-codescan-metlife-prd-metlife-prd,available,Primary,postgres,db.t3.medium,False,2023-11-14 21:28:46

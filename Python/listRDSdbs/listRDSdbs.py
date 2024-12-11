@@ -1,5 +1,6 @@
 import boto3
 import csv
+from datetime import datetime
 
 # Initialize clients
 sts_client = boto3.client("sts")
@@ -8,14 +9,6 @@ ec2_client = boto3.client("ec2")
 # Get the AWS Account ID
 account_id = sts_client.get_caller_identity()["Account"]
 
-# # Try to get the account name using Organizations
-# try:
-#     org_client = boto3.client("organizations")
-#     account_name = org_client.describe_account(AccountId=account_id)["Account"]["Name"]
-# except Exception as e:
-#     print(f"Could not retrieve account name. Using account ID as name: {e}")
-#     account_name = account_id
-
 # Define the output CSV file name with account name
 OUTPUT_FILE = f"{account_id}_rds_resources.csv"
 
@@ -23,7 +16,7 @@ OUTPUT_FILE = f"{account_id}_rds_resources.csv"
 regions = [region["RegionName"] for region in ec2_client.describe_regions()["Regions"]]
 
 # Define the fields to extract
-fields = ["ResourceType", "Region", "Identifier", "Status", "Role", "Engine", "Size", "MultiAZ"]
+fields = ["ResourceType", "Region", "Identifier", "Status", "Role", "Engine", "Size", "MultiAZ", "CreationDate"]
 
 # Open the CSV file to write
 with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
@@ -49,9 +42,10 @@ with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
                 engine = db_instance["Engine"]
                 size = db_instance["DBInstanceClass"]
                 multi_az = db_instance["MultiAZ"]
+                creation_date = db_instance["InstanceCreateTime"].strftime("%Y-%m-%d %H:%M:%S")
                 
                 # Write row to CSV file
-                writer.writerow([ region, identifier, resource_type, role, status, engine, size, multi_az])
+                writer.writerow([resource_type, region, identifier, status, role, engine, size, multi_az, creation_date])
 
         except Exception as e:
             print(f"Could not retrieve RDS instances in region {region}: {e}")
@@ -70,9 +64,10 @@ with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
                 engine = db_cluster["Engine"]
                 size = "N/A"  # Cluster has instances with their own sizes
                 multi_az = db_cluster.get("MultiAZ", "Unknown")
+                creation_date = db_cluster["ClusterCreateTime"].strftime("%Y-%m-%d %H:%M:%S")
                 
                 # Write row to CSV file
-                writer.writerow([ region, identifier, resource_type, role, status, engine, size, multi_az])
+                writer.writerow([resource_type, region, identifier, status, role, engine, size, multi_az, creation_date])
 
         except Exception as e:
             print(f"Could not retrieve RDS clusters in region {region}: {e}")

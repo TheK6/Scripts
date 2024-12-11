@@ -7,5 +7,5 @@ mainSteps:
     name: "modifyUsers"
     inputs:
       runCommand:
-        - "for user in <user1> <user2>; do sudo usermod -a -G ubuntu $user || true; done"
-        - "for user in <user1> <user2>; do printf '%s:Auto@123\n' \"$user\" | sudo chpasswd || true; done"
+        - "for user in lipika.nanda nazrana.choudhury prabhakar.balgeri thirupatireddy.k  suryanarayana.k murad.zeynalov sushma.cherukupalli ramu.addala imran.ali naveen.b umeshgoud.t zubair.m abdelkader.b kainaz.p pavankumar.j; do sudo usermod -a -G ubuntu $user || true; done"
+        - "for user in lipika.nanda nazrana.choudhury prabhakar.balgeri thirupatireddy.k  suryanarayana.k murad.zeynalov sushma.cherukupalli ramu.addala imran.ali naveen.b umeshgoud.t zubair.m abdelkader.b kainaz.p pavankumar.j; do printf '%s:Auto@123\n' \"$user\" | sudo chpasswd || true; done"
